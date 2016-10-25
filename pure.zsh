@@ -146,6 +146,8 @@ prompt_pure_preprompt_render() {
 	preprompt+=$prompt_pure_username
 	# execution time
 	preprompt+="%F{yellow}${prompt_pure_cmd_exec_time}%f"
+    # virtualenv
+    [[ -n $VIRTUAL_ENV ]] && preprompt+="%F{green} $(basename $VIRTUAL_ENV)%f"
 
 	# make sure prompt_pure_last_preprompt is a global array
 	typeset -g -a prompt_pure_last_preprompt
